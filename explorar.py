@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 #determina o dataframe base para a análise
 df = pd.read_csv('dataset.csv')
@@ -30,11 +31,32 @@ pd.set_option('display.max_rows', None)
 print(df_sorted[df_sorted.index == 'Belchior'])
 print(df_sorted)
 
+#plota o gráfico de barras horizontais com os 20 artistas mais populares
 first20 = df_sorted.head(20).iloc[::-1]
+plt.figure()
 plt.barh(first20.index, first20.values, color='skyblue')
 plt.xlabel('Popularidade Média')
 plt.ylabel('Artistas')
 plt.title('Top 20 Artistas de MPB e Samba por Popularidade Média')
-
 plt.show()
+
+#hipótese: para o gráfico de dispersão, vamos analisar a relação de valência e popularidade das músicas de MPB e Samba
+plt.figure()
+plt.scatter(df_mpb_samba_solo['valence'], df_mpb_samba_solo['popularity'], alpha=0.5, color='green')
+plt.xlabel('Valência')
+plt.ylabel('Popularidade')
+plt.title('Relação entre Valência e Popularidade das Músicas de MPB e Samba')
+plt.show()
+
+correlation = df_mpb_samba_solo['valence'].corr(df_mpb_samba_solo['popularity'])
+print(f'Correlação entre Valência e Popularidade: {correlation:.2f}')
+
+pd.set_option('display.max_columns', None)
+print(df_mpb_samba_solo.corr(numeric_only=True))
+
+plt.figure()
+sns.heatmap(df_mpb_samba_solo.corr(numeric_only=True), annot=True, cmap='coolwarm', fmt='.1f', linewidths=0.5, annot_kws={'size': 10}   )
+plt.title('Mapa de Calor da Correlação entre Variáveis Numéricas')
+plt.show()
+
 
