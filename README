@@ -1,14 +1,25 @@
 # Spotify analysis
 
-## o que é?
-*em construção*
+## What is it?
+This project aims to show if we can say that Samba and MPB are the same sound or musically distinct, based on four (valence, energy, acousticness, danceability) of the parameters from Spotify Tracks Dataset.
 
-## dataset:
-foi utilizado o dataset [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) pelo usuário MAHARSHPANDYA do kaggle
+## Dataset:
+the following dataset was used: [Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) by the user MAHARSHPANDYA from kaggle.
 
-## como rodar?
-*em construção*
+## Questions?
+MPB and Samba have the same emotional profile?
+They share the same energy?
+The acoustic constitution are similar?
 
-## o que responde?
-*em construção*
+## Conclusions?
+According to the obtained data, they diverge in all four of those parameters. Samba's valence and energy levels are consistently greater than MPB's, the acousticness of Samba is slightly higher and the danceability is nearly identical across both genres. What means that the genres are musically distinct, they convey different mensages and emotions across their songs.
+
+
+## How to run?
+1. Clone this repository
+2. Download the dataset from the link above and place `dataset.csv` in the project folder
+3. Run on terminal:
+```bash
+python analise.py
+```
 
